@@ -21,7 +21,7 @@ jobs:
   
 
   rezilion-validate:
-    needs: [rezilion-test-runtimes]
+    needs: [rezilion-scan]
     runs-on: ubuntu-latest
     container:
       image: rezilion/validate-ci:b63c85d0
