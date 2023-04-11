@@ -13,3 +13,6 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 
 RUN pip3 install -r requirements.txt
+
+CMD python -m SimpleHTTPServer 5000
+EXPOSE 5000
