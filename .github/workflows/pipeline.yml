@@ -15,9 +15,7 @@ jobs:
         with:
           image_name: 'dtwitch/python-test'
           mode: 'start'
-          
-          command: |
-            sleep 5
+          command: sleep 5
   
 
   rezilion-validate:
