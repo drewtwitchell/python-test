@@ -14,5 +14,6 @@ COPY requirements.txt ./
 
 RUN pip3 install -r requirements.txt
 
-CMD python -m SimpleHTTPServer 5000
-EXPOSE 5000
+COPY . ./
+EXPOSE 8080
+ENTRYPOINT ["python3", "app.py"]
