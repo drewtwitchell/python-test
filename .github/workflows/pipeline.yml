@@ -1,7 +1,7 @@
 name: Rezilion Test GitHub Action
 on: [push]
 jobs:
-  rezilion-scan:
+  python-test:
     runs-on: ubuntu-latest
     container:
       image: dtwitch/python-test
@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: Rezilion/github-action@v2.8.0
+      - uses: Rezilion/github-action@v2.9.0
         with:
           image_name: 'dtwitch/python-test'
           mode: 'start'
@@ -19,10 +19,10 @@ jobs:
   
 
   rezilion-validate:
-    needs: [rezilion-scan]
+    needs: [python-test]
     runs-on: ubuntu-latest
     container:
-      image: dtwitch/python-test
+      image: rezilion/validate-ci:6978c669
 
     env:
       REZILION_LICENSE_KEY: ${{ secrets.REZILION_LICENSE_KEY }}
@@ -33,6 +33,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: Rezilion/github-action@v2.8.0
+      - uses: Rezilion/github-action@v2.9.0
         with:
           mode: 'validate'
